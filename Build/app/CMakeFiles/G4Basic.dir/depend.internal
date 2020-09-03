@@ -8,6 +8,7 @@ app/CMakeFiles/G4Basic.dir/G4Basic.cpp.o
  ../src/RunAction.h
  ../src/SteppingAction.h
  ../src/TrackingAction.h
+ ../src/UserInfo.h
  /Users/austinmcdonald/projects/QPIX/Geant/Q_PIX_GEANT4/app/G4Basic.cpp
  /Users/austinmcdonald/software/GEANT4/geant4.10.06/include/Geant4/CLHEP/Geometry/BasicVector3D.h
  /Users/austinmcdonald/software/GEANT4/geant4.10.06/include/Geant4/CLHEP/Geometry/Normal3D.h

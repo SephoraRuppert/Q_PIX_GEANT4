@@ -239,6 +239,19 @@ src/CMakeFiles/G4BASIC.dir/MuonGenerator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/G4BASIC.dir/MuonGenerator.cpp.s"
 	cd /Users/austinmcdonald/projects/QPIX/Geant/Q_PIX_GEANT4/Build/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/austinmcdonald/projects/QPIX/Geant/Q_PIX_GEANT4/src/MuonGenerator.cpp -o CMakeFiles/G4BASIC.dir/MuonGenerator.cpp.s
 
+src/CMakeFiles/G4BASIC.dir/UserInfo.cpp.o: src/CMakeFiles/G4BASIC.dir/flags.make
+src/CMakeFiles/G4BASIC.dir/UserInfo.cpp.o: ../src/UserInfo.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/austinmcdonald/projects/QPIX/Geant/Q_PIX_GEANT4/Build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object src/CMakeFiles/G4BASIC.dir/UserInfo.cpp.o"
+	cd /Users/austinmcdonald/projects/QPIX/Geant/Q_PIX_GEANT4/Build/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/G4BASIC.dir/UserInfo.cpp.o -c /Users/austinmcdonald/projects/QPIX/Geant/Q_PIX_GEANT4/src/UserInfo.cpp
+
+src/CMakeFiles/G4BASIC.dir/UserInfo.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/G4BASIC.dir/UserInfo.cpp.i"
+	cd /Users/austinmcdonald/projects/QPIX/Geant/Q_PIX_GEANT4/Build/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/austinmcdonald/projects/QPIX/Geant/Q_PIX_GEANT4/src/UserInfo.cpp > CMakeFiles/G4BASIC.dir/UserInfo.cpp.i
+
+src/CMakeFiles/G4BASIC.dir/UserInfo.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/G4BASIC.dir/UserInfo.cpp.s"
+	cd /Users/austinmcdonald/projects/QPIX/Geant/Q_PIX_GEANT4/Build/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/austinmcdonald/projects/QPIX/Geant/Q_PIX_GEANT4/src/UserInfo.cpp -o CMakeFiles/G4BASIC.dir/UserInfo.cpp.s
+
 G4BASIC: src/CMakeFiles/G4BASIC.dir/AnalysisManager.cpp.o
 G4BASIC: src/CMakeFiles/G4BASIC.dir/MARLEYManager.cpp.o
 G4BASIC: src/CMakeFiles/G4BASIC.dir/MCTruthManager.cpp.o
@@ -253,6 +266,7 @@ G4BASIC: src/CMakeFiles/G4BASIC.dir/TrackingSD.cpp.o
 G4BASIC: src/CMakeFiles/G4BASIC.dir/TrackingHit.cpp.o
 G4BASIC: src/CMakeFiles/G4BASIC.dir/GeneratorFactory.cpp.o
 G4BASIC: src/CMakeFiles/G4BASIC.dir/MuonGenerator.cpp.o
+G4BASIC: src/CMakeFiles/G4BASIC.dir/UserInfo.cpp.o
 G4BASIC: src/CMakeFiles/G4BASIC.dir/build.make
 
 .PHONY : G4BASIC

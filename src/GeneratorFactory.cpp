@@ -34,8 +34,8 @@ GeneratorFactory::~GeneratorFactory()
 
 G4VPrimaryGenerator* GeneratorFactory::CreateGenerator() const
 {
-  G4VPrimaryGenerator* p = 0;
-  if      (name_ == "MUON")            p = new MuonGenerator();
+  // G4VPrimaryGenerator* p = 0;
+  // if      (name_ == "MUON")            p = new MuonGenerator();
 
 //   if      (name_ == "SINGLE_PARTICLE") p = new SingleParticleGenerator();
 
@@ -59,11 +59,11 @@ G4VPrimaryGenerator* GeneratorFactory::CreateGenerator() const
 
 //   else if (name_ == "E+E-PAIR")        p = new ElecPositronPairGenerator();
 
-  else {
-    G4String err = "The user specified an unknown generator: " + name_;
-    G4Exception("[GeneratorFactory]", "CreateGenerator()",
-        FatalException, err);
-  }
+  // else {
+  //   G4String err = "The user specified an unknown generator: " + name_;
+  //   G4Exception("[GeneratorFactory]", "CreateGenerator()",
+  //       FatalException, err);
+  // }
 
-  return p;
+  // return p;
 }

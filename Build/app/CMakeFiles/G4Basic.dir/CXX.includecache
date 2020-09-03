@@ -21,6 +21,8 @@ G4String.hh
 -
 G4GenericMessenger.hh
 ../src/G4GenericMessenger.hh
+UserInfo.h
+../src/UserInfo.h
 
 ../src/RunAction.h
 G4UserRunAction.hh
@@ -35,6 +37,8 @@ G4UserSteppingAction.hh
 ../src/TrackingAction.h
 G4UserTrackingAction.hh
 ../src/G4UserTrackingAction.hh
+
+../src/UserInfo.h
 
 /Users/austinmcdonald/projects/QPIX/Geant/Q_PIX_GEANT4/app/G4Basic.cpp
 DetectorConstruction.h

@@ -89,7 +89,8 @@ G4Basic_EXTERNAL_OBJECTS = \
 "/Users/austinmcdonald/projects/QPIX/Geant/Q_PIX_GEANT4/Build/src/CMakeFiles/G4BASIC.dir/TrackingSD.cpp.o" \
 "/Users/austinmcdonald/projects/QPIX/Geant/Q_PIX_GEANT4/Build/src/CMakeFiles/G4BASIC.dir/TrackingHit.cpp.o" \
 "/Users/austinmcdonald/projects/QPIX/Geant/Q_PIX_GEANT4/Build/src/CMakeFiles/G4BASIC.dir/GeneratorFactory.cpp.o" \
-"/Users/austinmcdonald/projects/QPIX/Geant/Q_PIX_GEANT4/Build/src/CMakeFiles/G4BASIC.dir/MuonGenerator.cpp.o"
+"/Users/austinmcdonald/projects/QPIX/Geant/Q_PIX_GEANT4/Build/src/CMakeFiles/G4BASIC.dir/MuonGenerator.cpp.o" \
+"/Users/austinmcdonald/projects/QPIX/Geant/Q_PIX_GEANT4/Build/src/CMakeFiles/G4BASIC.dir/UserInfo.cpp.o"
 
 app/G4Basic: app/CMakeFiles/G4Basic.dir/G4Basic.cpp.o
 app/G4Basic: src/CMakeFiles/G4BASIC.dir/AnalysisManager.cpp.o
@@ -106,6 +107,7 @@ app/G4Basic: src/CMakeFiles/G4BASIC.dir/TrackingSD.cpp.o
 app/G4Basic: src/CMakeFiles/G4BASIC.dir/TrackingHit.cpp.o
 app/G4Basic: src/CMakeFiles/G4BASIC.dir/GeneratorFactory.cpp.o
 app/G4Basic: src/CMakeFiles/G4BASIC.dir/MuonGenerator.cpp.o
+app/G4Basic: src/CMakeFiles/G4BASIC.dir/UserInfo.cpp.o
 app/G4Basic: app/CMakeFiles/G4Basic.dir/build.make
 app/G4Basic: /Users/austinmcdonald/software/ROOT/build/lib/libCore.so
 app/G4Basic: /Users/austinmcdonald/software/ROOT/build/lib/libImt.so

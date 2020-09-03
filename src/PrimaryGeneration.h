@@ -5,6 +5,7 @@
 #include <G4String.hh>
 #include "G4GenericMessenger.hh"
 
+#include "UserInfo.h"
 
 class G4VPrimaryGenerator;
 class G4GenericMessenger;
@@ -25,11 +26,32 @@ public:
   void SetGenerator(G4VPrimaryGenerator*);
   /// Returns a pointer to the primary generator
   const G4VPrimaryGenerator* GetGenerator() const;
+  UserInfo * User_Info;
 
 private:
   G4VPrimaryGenerator* generator_; ///< Pointer to the primary generator
   G4GenericMessenger* msg_; ///< Pointer to the messenger
+  
   G4String name_; ///< Name of the chosen primary generator
+
+
+  G4double energy_min_; ///< Minimum kinetic energy
+  G4double energy_max_; ///< Maximum kinetic energy
+
+  // G4String region_;
+
+  // const BaseGeometry* geom_; ///< Pointer to the detector geometry
+
+  G4double momentum_X_;
+  G4double momentum_Y_;
+  G4double momentum_Z_;
+
+  G4double position_X_;
+  G4double position_Y_;
+  G4double position_Z_;
+
+
+
 };
 
 // INLINE DEFINITIONS //////////////////////////////////////////////

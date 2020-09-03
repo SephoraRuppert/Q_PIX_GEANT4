@@ -18,42 +18,60 @@
 #include <TMath.h>
 #include "CLHEP/Units/SystemOfUnits.h"
 
+#include "UserInfo.h"
+
+#include "G4PhysicalConstants.hh"
+#include "G4SystemOfUnits.hh"
+
+#include <cstdlib>
+#include "G4GenericMessenger.hh"
+
+
 using namespace CLHEP;
 
 
-MuonGenerator::MuonGenerator():
-  G4VPrimaryGenerator(), msg_(0), particle_definition_(0),
-  energy_min_(0.), energy_max_(0.), 
-  momentum_X_(0.), momentum_Y_(0.), momentum_Z_(0.),
-  position_X_(0.), position_Y_(0.), position_Z_(0.)
+MuonGenerator::MuonGenerator(UserInfo * User_Info):
+    G4VPrimaryGenerator()
 {
-  msg_ = new G4GenericMessenger(this, "/Generator/MuonGenerator/",
-				"Control commands of muongenerator.");
+    // energy_min_ = User_Info->User_energy_min_ ;
+    // energy_max_ = User_Info->User_energy_max_ ;
 
-  G4GenericMessenger::Command& min_energy =
-    msg_->DeclareProperty("min_energy", energy_min_, "Set minimum kinetic energy of the particle.");
-  min_energy.SetUnitCategory("Energy");
-  min_energy.SetParameterName("min_energy", false);
-  min_energy.SetRange("min_energy>0.");
+    // momentum_X_ = User_Info->User_momentum_X_ ;
+    // momentum_Y_ = User_Info->User_momentum_Y_ ;
+    // momentum_Z_ = User_Info->User_momentum_Z_ ;
 
-  G4GenericMessenger::Command& max_energy =
-    msg_->DeclareProperty("max_energy", energy_max_, "Set maximum kinetic energy of the particle");
-  max_energy.SetUnitCategory("Energy");
-  max_energy.SetParameterName("max_energy", false);
-  max_energy.SetRange("max_energy>0.");
+    // position_X_ = User_Info->User_position_X_;
+    // position_Y_ = User_Info->User_position_Y_ ;
+    // position_Z_ = User_Info->User_position_Z_ ;
 
+    // if ( abs( energy_min_- 200.*MeV) >0.1)
+    // G4Exception("[FUCK]", "FUCK()",
+    //             FatalException, "FUCK FUCK FUCK!");
 
-  msg_->DeclareProperty("momentum_X", momentum_X_,"x coord of momentum");
-  msg_->DeclareProperty("momentum_Y", momentum_Y_,"y coord of momentum");
-  msg_->DeclareProperty("momentum_Z", momentum_Z_,"z coord of momentum");
+    // energy_min_ =  1.;
+    // energy_max_ =  1.;
 
-  msg_->DeclareProperty("momentum_X", position_X_,"x coord of position");
-  msg_->DeclareProperty("momentum_Y", position_Y_,"y coord of position");
-  msg_->DeclareProperty("momentum_Z", position_Z_,"z coord of position");
+    // momentum_X_ =  10.;
+    // momentum_Y_ =  10.;
+    // momentum_Z_ =  10.;
 
+    // position_X_ = 10.;
+    // position_Y_ =  10.;
+    // position_Z_ =  10.;
 
-//   DetectorConstruction* detconst = (DetectorConstruction*) G4RunManager::GetRunManager()->GetUserDetectorConstruction();
-//   geom_ = detconst->GetGeometry();
+    // msg_ = new G4GenericMessenger(this, "/Generator/MuonGenerator/",
+	// 			"Control commands of muongenerator.");
+    // msg_->DeclareProperty("min_energy", energy_min_, "Set minimum kinetic energy of the particle.");
+    // msg_->DeclareProperty("max_energy", energy_max_, "Set maximum kinetic energy of the particle");
+
+    // msg_->DeclareProperty("momentum_X", momentum_X_,"x coord of momentum");
+    // msg_->DeclareProperty("momentum_Y", momentum_Y_,"y coord of momentum");
+    // msg_->DeclareProperty("momentum_Z", momentum_Z_,"z coord of momentum");
+
+    // msg_->DeclareProperty("position_X", position_X_,"x coord of position");
+    // msg_->DeclareProperty("position_Y", position_Y_,"y coord of position");
+    // msg_->DeclareProperty("position_Z", position_Z_,"z coord of position");
+
 
 }
 
@@ -61,28 +79,14 @@ MuonGenerator::MuonGenerator():
 
 MuonGenerator::~MuonGenerator()
 {
-    delete msg_;
+
 }
 
 void MuonGenerator::GeneratePrimaryVertex(G4Event* event)
 {
 
-    // get detector dimensions
-    if (!detector_solid_vol_)
-    {
-    G4LogicalVolume* detector_logic_vol
-        = G4LogicalVolumeStore::GetInstance()->GetVolume("detector.logical");
-    if (detector_logic_vol) detector_solid_vol_ = dynamic_cast<G4Box*>(detector_logic_vol->GetSolid());
-    }
-    if (detector_solid_vol_)
-    {
-    detector_length_x_ = detector_solid_vol_->GetXHalfLength() * 2.;
-    detector_length_y_ = detector_solid_vol_->GetYHalfLength() * 2.;
-    detector_length_z_ = detector_solid_vol_->GetZHalfLength() * 2.;
-    }
-
-
-  particle_definition_ = G4ParticleTable::GetParticleTable()->FindParticle(MuonCharge());
+  particle_definition_ = G4ParticleTable::GetParticleTable()->FindParticle("e-");
+//   particle_definition_ = G4ParticleTable::GetParticleTable()->FindParticle(MuonCharge());
   if (!particle_definition_)
     G4Exception("[MuonGenerator]", "SetParticleDefinition()",
                 FatalException, " can not create a muon ");

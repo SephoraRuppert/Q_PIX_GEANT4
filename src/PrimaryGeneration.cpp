@@ -6,11 +6,62 @@
 
 #include "MuonGenerator.h"
 
+#include "UserInfo.h"
+#include "G4PhysicalConstants.hh"
+#include "G4SystemOfUnits.hh"
+
+#include <stdlib.h>
+#include <math.h>
+
+
+
 PrimaryGeneration::PrimaryGeneration():
-  G4VUserPrimaryGeneratorAction(), generator_(0)
+  G4VUserPrimaryGeneratorAction()
 {
   msg_ = new G4GenericMessenger(this, "/Generator/");
   msg_->DeclareProperty("RegisterGenerator", name_, "");
+
+  UserInfo * User_Info = new UserInfo();
+
+  msg_ = new G4GenericMessenger(this, "/Generator/MuonGenerator/",
+				"Control commands of muongenerator.");
+
+  // G4GenericMessenger::Command& min_energy =
+  //   msg_->DeclareProperty("min_energy", energy_min_, "Set minimum kinetic energy of the particle.");
+  // min_energy.SetUnitCategory("Energy");
+  // min_energy.SetParameterName("min_energy", false);
+  // min_energy.SetRange("min_energy>0.");
+
+  // G4GenericMessenger::Command& max_energy =
+  //   msg_->DeclareProperty("max_energy", energy_max_, "Set maximum kinetic energy of the particle");
+  // max_energy.SetUnitCategory("Energy");
+  // max_energy.SetParameterName("max_energy", false);
+  // max_energy.SetRange("max_energy>0.");
+
+  msg_->DeclareProperty("min_energy", energy_min_, "Set minimum kinetic energy of the particle.");
+  msg_->DeclareProperty("max_energy", energy_max_, "Set maximum kinetic energy of the particle");
+
+  msg_->DeclareProperty("momentum_X", momentum_X_,"x coord of momentum");
+  msg_->DeclareProperty("momentum_Y", momentum_Y_,"y coord of momentum");
+  msg_->DeclareProperty("momentum_Z", momentum_Z_,"z coord of momentum");
+
+  msg_->DeclareProperty("position_X", position_X_,"x coord of position");
+  msg_->DeclareProperty("position_Y", position_Y_,"y coord of position");
+  msg_->DeclareProperty("position_Z", position_Z_,"z coord of position");
+
+
+  User_Info->User_energy_min_ = energy_min_;
+  User_Info->User_energy_max_ = energy_max_;
+
+  User_Info->User_momentum_X_ = momentum_X_;
+  User_Info->User_momentum_Y_ = momentum_Y_;
+  User_Info->User_momentum_Z_ = momentum_Z_;
+
+  User_Info->User_position_X_ = position_X_;
+  User_Info->User_position_Y_ = position_Y_;
+  User_Info->User_position_Z_ = position_Z_;
+
+
 
 }
 
@@ -25,8 +76,10 @@ PrimaryGeneration::~PrimaryGeneration()
 
 void PrimaryGeneration::GeneratePrimaries(G4Event* event)
 {
+  // for (int i; i<20; i++){G4cout<<"AUSTIN_HERE"<<G4endl;}
   G4VPrimaryGenerator* generator_ = 0;
-  if      (name_ == "MUON")            generator_ = new MuonGenerator();
+  if      (name_ == "MUON")            generator_ = new MuonGenerator(User_Info);
+  // generator_ = new MuonGenerator(User_Info);
 
   if (!generator_)
     G4Exception("[PrimaryGeneration]", "GeneratePrimaries()",

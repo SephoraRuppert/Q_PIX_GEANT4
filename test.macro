@@ -7,16 +7,16 @@
 
 /Generator/RegisterGenerator MUON
 
-/Generator/MuonGenerator/min_energy 200 MeV
-/Generator/MuonGenerator/max_energy 200 MeV
+#/Generator/MuonGenerator/min_energy 200. MeV
+#/Generator/MuonGenerator/max_energy 200. MeV
 
-/Generator/MuonGenerator/momentum_X_ 0
-/Generator/MuonGenerator/momentum_Y_ 1
-/Generator/MuonGenerator/momentum_Z_ 0
+/Generator/MuonGenerator/momentum_X 0.
+/Generator/MuonGenerator/momentum_Y 1.
+/Generator/MuonGenerator/momentum_Z 0.
 
-/Generator/MuonGenerator/position_X_ 50 cm
-/Generator/MuonGenerator/position_Y_ 50 cm
-/Generator/MuonGenerator/position_Z_ 50 cm
+/Generator/MuonGenerator/position_X 50. cm
+/Generator/MuonGenerator/position_Y 50. cm
+/Generator/MuonGenerator/position_Z 50. cm
 
 
 /run/beamOn 1

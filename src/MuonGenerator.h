@@ -3,7 +3,7 @@
 
 #include <G4VPrimaryGenerator.hh>
 
-#include "G4Box.hh"
+#include "UserInfo.h"
 
 class G4GenericMessenger;
 class G4Event;
@@ -16,7 +16,7 @@ class MuonGenerator: public G4VPrimaryGenerator
 {
 public:
 /// Constructor
-MuonGenerator();
+MuonGenerator(UserInfo * );
 /// Destructor
 ~MuonGenerator();
 
@@ -53,12 +53,6 @@ G4double momentum_Z_;
 G4double position_X_;
 G4double position_Y_;
 G4double position_Z_;
-
-double detector_length_x_;
-double detector_length_y_;
-double detector_length_z_;
-
-G4Box* detector_solid_vol_;
 
 };
 

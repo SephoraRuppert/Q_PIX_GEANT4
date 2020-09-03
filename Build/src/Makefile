@@ -549,6 +549,33 @@ TrackingSD.cpp.s:
 	cd /Users/austinmcdonald/projects/QPIX/Geant/Q_PIX_GEANT4/Build && $(MAKE) -f src/CMakeFiles/G4BASIC.dir/build.make src/CMakeFiles/G4BASIC.dir/TrackingSD.cpp.s
 .PHONY : TrackingSD.cpp.s
 
+UserInfo.o: UserInfo.cpp.o
+
+.PHONY : UserInfo.o
+
+# target to build an object file
+UserInfo.cpp.o:
+	cd /Users/austinmcdonald/projects/QPIX/Geant/Q_PIX_GEANT4/Build && $(MAKE) -f src/CMakeFiles/G4BASIC.dir/build.make src/CMakeFiles/G4BASIC.dir/UserInfo.cpp.o
+.PHONY : UserInfo.cpp.o
+
+UserInfo.i: UserInfo.cpp.i
+
+.PHONY : UserInfo.i
+
+# target to preprocess a source file
+UserInfo.cpp.i:
+	cd /Users/austinmcdonald/projects/QPIX/Geant/Q_PIX_GEANT4/Build && $(MAKE) -f src/CMakeFiles/G4BASIC.dir/build.make src/CMakeFiles/G4BASIC.dir/UserInfo.cpp.i
+.PHONY : UserInfo.cpp.i
+
+UserInfo.s: UserInfo.cpp.s
+
+.PHONY : UserInfo.s
+
+# target to generate assembly for a file
+UserInfo.cpp.s:
+	cd /Users/austinmcdonald/projects/QPIX/Geant/Q_PIX_GEANT4/Build && $(MAKE) -f src/CMakeFiles/G4BASIC.dir/build.make src/CMakeFiles/G4BASIC.dir/UserInfo.cpp.s
+.PHONY : UserInfo.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -604,6 +631,9 @@ help:
 	@echo "... TrackingSD.o"
 	@echo "... TrackingSD.i"
 	@echo "... TrackingSD.s"
+	@echo "... UserInfo.o"
+	@echo "... UserInfo.i"
+	@echo "... UserInfo.s"
 .PHONY : help
 
 

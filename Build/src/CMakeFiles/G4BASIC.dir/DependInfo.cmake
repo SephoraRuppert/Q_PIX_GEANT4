@@ -18,6 +18,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/austinmcdonald/projects/QPIX/Geant/Q_PIX_GEANT4/src/TrackingAction.cpp" "/Users/austinmcdonald/projects/QPIX/Geant/Q_PIX_GEANT4/Build/src/CMakeFiles/G4BASIC.dir/TrackingAction.cpp.o"
   "/Users/austinmcdonald/projects/QPIX/Geant/Q_PIX_GEANT4/src/TrackingHit.cpp" "/Users/austinmcdonald/projects/QPIX/Geant/Q_PIX_GEANT4/Build/src/CMakeFiles/G4BASIC.dir/TrackingHit.cpp.o"
   "/Users/austinmcdonald/projects/QPIX/Geant/Q_PIX_GEANT4/src/TrackingSD.cpp" "/Users/austinmcdonald/projects/QPIX/Geant/Q_PIX_GEANT4/Build/src/CMakeFiles/G4BASIC.dir/TrackingSD.cpp.o"
+  "/Users/austinmcdonald/projects/QPIX/Geant/Q_PIX_GEANT4/src/UserInfo.cpp" "/Users/austinmcdonald/projects/QPIX/Geant/Q_PIX_GEANT4/Build/src/CMakeFiles/G4BASIC.dir/UserInfo.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 

@@ -13,6 +13,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/G4BASIC.dir/TrackingAction.cpp.o"
   "CMakeFiles/G4BASIC.dir/TrackingHit.cpp.o"
   "CMakeFiles/G4BASIC.dir/TrackingSD.cpp.o"
+  "CMakeFiles/G4BASIC.dir/UserInfo.cpp.o"
 )
 
 # Per-language clean rules from dependency scanning.

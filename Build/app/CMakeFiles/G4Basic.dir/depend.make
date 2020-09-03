@@ -7,6 +7,7 @@ app/CMakeFiles/G4Basic.dir/G4Basic.cpp.o: ../src/PrimaryGeneration.h
 app/CMakeFiles/G4Basic.dir/G4Basic.cpp.o: ../src/RunAction.h
 app/CMakeFiles/G4Basic.dir/G4Basic.cpp.o: ../src/SteppingAction.h
 app/CMakeFiles/G4Basic.dir/G4Basic.cpp.o: ../src/TrackingAction.h
+app/CMakeFiles/G4Basic.dir/G4Basic.cpp.o: ../src/UserInfo.h
 app/CMakeFiles/G4Basic.dir/G4Basic.cpp.o: ../app/G4Basic.cpp
 app/CMakeFiles/G4Basic.dir/G4Basic.cpp.o: /Users/austinmcdonald/software/GEANT4/geant4.10.06/include/Geant4/CLHEP/Geometry/BasicVector3D.h
 app/CMakeFiles/G4Basic.dir/G4Basic.cpp.o: /Users/austinmcdonald/software/GEANT4/geant4.10.06/include/Geant4/CLHEP/Geometry/Normal3D.h

@@ -20,6 +20,7 @@ SET(SRC   AnalysisManager.cpp
           TrackingHit.cpp
           GeneratorFactory.cpp
           MuonGenerator.cpp
+          UserInfo.cpp
           )
 
 add_library(${CMAKE_PROJECT_NAME} OBJECT ${SRC})
