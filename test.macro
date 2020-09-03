@@ -1,0 +1,22 @@
+# example macro file
+
+/run/initialize
+/tracking/verbose 2
+/Inputs/MARLEY_json /Users/austinmcdonald/projects/tmp/Q_PIX_GEANT4/config.js
+/Inputs/root_output /Users/austinmcdonald/projects/QPIX/Geant/tmp.root
+
+/Generator/RegisterGenerator MUON
+
+/Generator/MuonGenerator/min_energy 200 MeV
+/Generator/MuonGenerator/max_energy 200 MeV
+
+/Generator/MuonGenerator/momentum_X_ 0
+/Generator/MuonGenerator/momentum_Y_ 1
+/Generator/MuonGenerator/momentum_Z_ 0
+
+/Generator/MuonGenerator/position_X_ 50 cm
+/Generator/MuonGenerator/position_Y_ 50 cm
+/Generator/MuonGenerator/position_Z_ 50 cm
+
+
+/run/beamOn 1
