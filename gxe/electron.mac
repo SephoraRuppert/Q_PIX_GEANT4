@@ -42,4 +42,4 @@
 /gps/ene/sigma 100. MeV
 
 # run
-/run/beamOn 100
+/run/beamOn 1
