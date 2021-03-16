@@ -19,7 +19,8 @@
 #include <G4UIExecutive.hh>
 #include <FTFP_BERT_HP.hh>
 #include <G4EmStandardPhysics_option4.hh>
-
+#include <G4OpticalPhysics.hh>
+#include <G4RadioactiveDecayPhysics.hh>
 
 #include "Randomize.hh"
 #include "time.h"
@@ -46,7 +47,11 @@ int main(int argc, char** argv)
   // Construct the run manager and set the initialization classes
   G4RunManager* run_manager = new G4RunManager();
 
-  G4VModularPhysicsList* physics_list = new FTFP_BERT_HP();
+ G4VModularPhysicsList* physics_list = new G4VModularPhysicsList();
+  physics_list->RegisterPhysics(new G4OpticalPhysics());
+  physics_list->RegisterPhysics(new G4EmStandardPhysics_option4());
+  physics_list->RegisterPhysics(new G4RadioactiveDecayPhysics());
+  runmgr->SetUserInitialization(physics_list);
   physics_list->ReplacePhysics(new G4EmStandardPhysics_option4());
   run_manager->SetUserInitialization(physics_list);
 

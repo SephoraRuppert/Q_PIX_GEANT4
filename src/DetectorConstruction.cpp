@@ -48,7 +48,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   G4double detector_width   = 2.3*m;
   G4double detector_height  = 6.0*m;
   G4double detector_length  = 3.6*m;
-  G4Material* detector_mat = G4NistManager::Instance()->FindOrBuildMaterial("G4_lAr");
+  G4Material* xenon_mat = DefineXenon();
 
   G4Box* detector_solid_vol =
     new G4Box("detector.solid", detector_width/2., detector_height/2., detector_length/2.);
@@ -79,4 +79,45 @@ void DetectorConstruction::ConstructSDandField()
   SetSensitiveDetector(detector_logic_vol, tracking_sd);
 
   //////////////////////////////////////////////////////////
+}
+
+
+G4Material* DetectorConstruction::DefineXenon() const{
+  // Defines the material and optical properties of gaseous xenon
+
+  G4String material_name = "GXe";
+  G4double density = 88.56 * kg/m3;
+  //G4double pressure = 15.0 * bar;
+  G4double temperature = 300. * kelvin;
+  G4double sc_yield = 20000*1/MeV; // Estimated ~50 photons/eV
+
+  G4Material* material = new G4Material(material_name, density, 1,
+			    kStateGas, temperature, fpressure);
+  G4Element* Xe = G4NistManager::Instance()->FindOrBuildElement("Xe");
+  material->AddElement(Xe,1);
+
+  // Optical Properties of Xenon
+  // From Geant4 Liquid Xenon example
+  // FIXME: what should these number be for this gasous xenon detector???
+  const G4int GXe_NUMENTRIES = 3;
+  G4double GXe_Energy[GXe_NUMENTRIES]    = { 7.0*eV , 7.07*eV, 7.14*eV };
+  G4double GXe_SCINT[GXe_NUMENTRIES] = { 0.1, 1.0, 0.1 };
+  G4double GXe_RIND[GXe_NUMENTRIES]  = {1.0, 1.0, 1.0};
+  G4double GXe_ABSL[GXe_NUMENTRIES]  = {1.e8*m, 1.e8*m, 1.e8*m};
+
+  G4MaterialPropertiesTable* GXe_mt = new G4MaterialPropertiesTable();
+
+  GXe_mt->AddProperty("FASTCOMPONENT", GXe_Energy, GXe_SCINT, GXe_NUMENTRIES);
+  GXe_mt->AddProperty("RINDEX",        GXe_Energy, GXe_RIND,  GXe_NUMENTRIES);
+  GXe_mt->AddProperty("ABSLENGTH",     GXe_Energy, GXe_ABSL,  GXe_NUMENTRIES);
+  GXe_mt->AddConstProperty("SCINTILLATIONYIELD",sc_yield);
+  GXe_mt->AddConstProperty("RESOLUTIONSCALE",1.0);
+  GXe_mt->AddConstProperty("FASTTIMECONSTANT",1.*ns);
+  GXe_mt->AddConstProperty("YIELDRATIO",1.0);
+  GXe_mt->AddProperty("ELSPECTRUM", GXe_Energy, GXe_SCINT, GXe_NUMENTRIES);
+  GXe_mt->AddConstProperty("ELTIMECONSTANT", 50.*ns);
+
+  material->SetMaterialPropertiesTable(GXe_mt);
+
+  return material;
 }

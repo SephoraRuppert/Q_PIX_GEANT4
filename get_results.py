@@ -20,14 +20,6 @@ if __name__ == "__main__":
    for event in range(0, tree1.GetEntries()):
        tree1.GetEntry(event)
 
-       #if not first event, clear variables
-       if event > 0:
-           del (number_particles, number_hits, particle_track_id, particle_parent_track_id,
-                    particle_initial_x, particle_initial_y, particle_initial_z,
-                    particle_initial_px, particle_initial_py, particle_initial_pz,
-                    hit_track_id, hit_start_x, hit_start_y, hit_start_z, hit_start_t,
-                    hit_end_x, hit_end_y, hit_end_z, hit_end_t)
-
        # get particle and hit branches
        number_particles= getattr (tree1,"number_particles")
        number_hits= getattr (tree1,"number_hits")
@@ -48,7 +40,6 @@ if __name__ == "__main__":
        hit_end_y=getattr (tree1,"hit_end_y")
        hit_end_z=getattr (tree1,"hit_end_z")
        hit_end_t=getattr (tree1,"hit_end_t")
-       particle_initial_energy=getattr (tree1, "particle_initial_energy")
 
        ## loop over all particles to get to the primary particle(s)
        for i in range(number_particles):
@@ -78,12 +69,6 @@ if __name__ == "__main__":
                y = hits_end[:,1]
                z = hits_end[:,2]
 
-               # true trajectory
-               electron_vacuum_point2 = np.add(electron_start_position, np.multiply(electron_start_momentum,0.075))
-               true_x=[electron_start_position[0], electron_vacuum_point2[0]]
-               true_y=[electron_start_position[1], electron_vacuum_point2[1]]
-               true_z=[electron_start_position[2], electron_vacuum_point2[2]]
-
                #3D graph
                fig1 = plt.figure()
                plt.title('Electron hits 3d')
@@ -94,12 +79,14 @@ if __name__ == "__main__":
                #ax1.set_xlim([0,115])
                #ax1.set_ylim([0,115])
                #ax1.set_zlim([0,115])
-               ax1.scatter(x,y,z,s=1, label='hits')
+               ax1.scatter(x,y,z,s=1)
                ax1.scatter(electron_start_position[0],electron_start_position[1],electron_start_position[2],s=2, color='red')
-               ax1.plot(true_x, true_y, true_z, linewidth=0.5, color='red', label='true trajectory')
-               leg = ax1.legend();
 
-               fig1.savefig('electron_path_3d_'+ str(event) + '.png', bbox_inches='tight')   # Save graph as a png, to your current directory
+               #add line of non interfered trajectory
+               electron_vacuum_point2 = np.add(electron_start_position, np.multiply(electron_start_momentum,100))
+               ax1.plot(electron_start_position, electron_vacuum_point2)
+
+               fig1.savefig('electron_path_3d1.png', bbox_inches='tight')   # Save graph as a png, to your current directory
 
                #2D graphs
                fig2, axs = plt.subplots(2,2)
@@ -108,41 +95,30 @@ if __name__ == "__main__":
                # x-y
                axs[0,0].set_xlabel('$X$')
                axs[0,0].set_ylabel('$Y$')
-               axs[0,0].scatter(electron_start_position[0],electron_start_position[1],s=4, color='red', label='true start')
+               axs[0,0].scatter(electron_start_position[0],electron_start_position[1],s=2, color='red')
 
                #axs[0,0].set_xlim([0,115])
                #axs[0,0].set_ylim([0,115])
                # x-z
                axs[0,1].set_xlabel('$X$')
                axs[0,1].set_ylabel('$Z$')
-               axs[0,1].scatter(electron_start_position[0],electron_start_position[2],s=4, color='red', label='true start')
+               axs[0,1].scatter(electron_start_position[0],electron_start_position[2],s=2, color='red')
                #axs[0,1].set_xlim([0,115])
                #axs[0,1].set_ylim([0,115])
 
                # y-z
                axs[1,0].set_xlabel('$Y$')
                axs[1,0].set_ylabel('$Z$')
-               axs[1,0].scatter(electron_start_position[1],electron_start_position[2],s=4, color='red', label='true start')
+               axs[1,0].scatter(electron_start_position[1],electron_start_position[2],s=2, color='red')
                #axs[1,0].set_xlim([0,115])
                #axs[1,0].set_ylim([0,115])
 
 
                # populate the graph with scatter points
-               axs[0,0].scatter(x,y,s=1, label='hits')
-               axs[0,1].scatter(x,z,s=1, label='hits')
-               axs[1,0].scatter(y,z,s=1, label='hits')
-               axs[0,0].plot(true_x, true_y, linewidth=0.5, color='red', label='true trajectory')
-               axs[0,1].plot(true_x, true_z, linewidth=0.5, color='red', label='true trajectory')
-               axs[1,0].plot(true_y, true_z, linewidth=0.5, color='red', label='true trajectory')
-
+               axs[0,0].scatter(x,y,s=1)
+               axs[0,1].scatter(x,z,s=1)
+               axs[1,0].scatter(y,z,s=1)
                fig2.delaxes(axs[1,1])
 
-               # create legend
-               handles, labels = axs[0,0].get_legend_handles_labels()
-               fig2.legend(handles, labels,loc = 'best')
-
-               fig2.savefig('electron_path_2d_'+ str(event) + '.png', bbox_inches='tight')
-
-               # Test: Return the original energy of the electron:
-               print(str(particle_initial_energy[i]))
+               fig2.savefig('electron_path_2d.png', bbox_inches='tight')
 

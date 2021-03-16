@@ -34,12 +34,12 @@
 /gps/ang/rot1 -1 0 0
 /gps/ang/rot2 0 0 1
 /gps/ang/mintheta 0 deg
-/gps/ang/maxtheta 45 deg  # opening angle of cone
+/gps/ang/maxtheta 0 45 deg  # opening angle of cone
 
 # energy distribution
 /gps/ene/type Gauss
-/gps/ene/mono 500 MeV
-/gps/ene/sigma 100. MeV
+/gps/ene/mono 20000 MeV
+/gps/ene/sigma 0 MeV
 
 # run
-/run/beamOn 1
+/run/beamOn 3
